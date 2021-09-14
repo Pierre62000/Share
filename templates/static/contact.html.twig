@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Contact - {{ parent() }} {% endblock %}
+
+{% block body %}
+    <h1> Contact </h1>
+
+    <br>
+    <br>
+
+    {{ form_start(form) }}
+
+    <div class="container">
+
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(form) }}
+        </div>
+
+        <div class="col">
+            {{ form_label(form.nom, 'Nom :', {'label_attr': {'class': 'fw-bold'}}) }}
+            <br>
+            {{ form_widget(form.nom, {'attr':{'class':'form-control', 'placeholder':'Votre nom'}}) }}
+        </div>
+        <div class="col">
+            {{ form_label(form.email, 'Email :') }}
+            <br>
+            {{ form_widget(form.email, {'attr':{'class':'form-control', 'placeholder':'Votre email'}}) }}
+        </div>
+        <div class="col">
+            {{ form_label(form.sujet, 'Sujet :') }}
+            <br>
+            {{ form_widget(form.sujet, {'attr':{'class':'form-control', 'placeholder':'Votre sujet'}}) }}
+        </div>
+        <div class="col">
+            {{ form_label(form.message, 'Message :') }}
+            <br>
+            {{ form_widget(form.message, {'attr':{'class':'form-control', 'placeholder':'Votre message'}}) }}
+        </div>
+
+        <br>
+
+        <div class="col">
+            {{ form_widget(form.envoyer, {'label':"Soumettre le formulaire", 'attr':{'class':'btn bg-primary'}}) }}
+        </div>
+
+    </div>
+
+    {{ form_end(form, {render_rest: true}) }}
+
+{% endblock %}

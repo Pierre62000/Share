@@ -42,10 +42,4 @@ class StaticController extends AbstractController
         
         return $this->render('static/contact.html.twig', ['form'=>$form->createView()]);
     }
-
-    #[Route('/test', name: 'test')]
-    public function test(): Response
-    {
-        return $this->render('emails/contact-email.html.twig', []);
-    }
 }
